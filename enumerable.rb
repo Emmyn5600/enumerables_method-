@@ -88,7 +88,7 @@ module Enumerable
 
   def my_map(proc = nil)
     return enum_for(:my_map, proc) unless !proc.nil? || block_given?
-
+ 
     arr = []
     if proc.nil?
       to_a.my_each { |item| arr << yield(item) }
@@ -97,6 +97,9 @@ module Enumerable
     end
     arr
   end
+
+  #p [1,2,4,2,1].my_map(Proc.new {|number| number*2})
+
 
   def my_inject(result = nil, symbol = nil)
     if (result.is_a?(Symbol) || result.is_a?(String)) && (!result.nil? && symbol.nil?)
@@ -140,7 +143,7 @@ end
 # [7,2,2,7].my_none? {|p| puts "The condition is #{p}"}
 
 # my_map
-# [1,2,3,5,6,7].my_map { |name| puts "#{name*2}".concat(" Tiago")}
+#[1,2,3,5,6,7].my_map { |name| puts "#{name*2}".concat(" Tiago")}
 
 # my_inject?
 # [1,2,3,5,6,7].my_inject {|sum| puts sum}
