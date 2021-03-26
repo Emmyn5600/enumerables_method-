@@ -1,7 +1,6 @@
 module Enumerable
   def my_each
     return enum_for(:my_each) unless block_given?
-
     i = 0
     while i < to_a.length
       yield(to_a[i])
@@ -122,7 +121,7 @@ end
 # testing
 
 # my_each
-# [1,2,4,5,6].my_each { puts "Tiago"}
+ p [1,2,4,5,6].my_each {|i| puts i+1}
 # [1,2,4,5,6].my_each {|items| p items**2 }
 
 # my_each_with_index
